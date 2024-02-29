@@ -29,7 +29,7 @@ router.post('/createuser', [
         const secPass =await bcrypt.hash(req.body.password, salt)
 
 
-        //check whether the user exits already  findOne will help to check if that user with same email already exits or not 
+        //check whether the user exits already findOne will help to check if that user with same email already exits or not 
         let user = await User.findOne({ email: req.body.email })
         if (user) {
             return res.status(400).json({ error: "User alredy exists" })
