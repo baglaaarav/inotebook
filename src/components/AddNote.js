@@ -33,7 +33,7 @@ const AddNote = () => {
 
             </div>
         </div>
-    )
+    ) 
 }
 
 export default AddNote
