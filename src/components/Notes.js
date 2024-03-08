@@ -14,7 +14,7 @@ const Notes = () => {
         getnotes();
         // eslint-disable-next-line
     }, [])
-    const [note, setNote] = useState({id: " ", title : "", description :  "", tag : ""});
+    const [note, setNote] = useState({id: " ", title : "", description :  "", tag : "default"});
 
     const updateNote = (note) => {
         ref.current.click();

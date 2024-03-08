@@ -38,7 +38,9 @@ const NoteState = (props) => {
 
 // eslint-disable-next-line
 
-    getnotes()
+    const note = await response.json();
+
+    changeNotes(notes.concat(note))
   }
 
   //delete a note
