@@ -19,7 +19,7 @@ const Login = () => {
         if(json.success === true){
             //save the authtoken and then redirect
             localStorage.setItem('token', json.authtoken);
-            history.push("/");
+            history("/");
         }
         else{
             alert("Invalid cread");

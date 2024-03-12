@@ -12,15 +12,15 @@ const { body, validationResult } = require('express-validator');
 
 //ROUTE 1 : helps to route from the traffic of /createuser to post what will happen in that case
 router.post('/createuser', [
-    body('name', 'Enter a valid name').isLength({ min: 5, max: 10 }),
+    body('name', 'Enter a valid name').isLength({ min: 4, max: 10 }),
     body('email', "Enter a valid email").isEmail(),
-    body('password', 'Enter atleast 5 digit password').isLength({ min: 5 })
+    body('password', 'Enter atleast 5 digit password').isLength({ min: 4 })
 ], async (req, res) => {
-
+    let success = false;
     //If there are errors, return Bad request and the errors
     const error = validationResult(req);
     if (!error.isEmpty()) {
-        return res.status(400).json({ error: error.array() });
+        return res.status(400).json({success, error: error.array() });
     }
 
     try {
@@ -34,7 +34,7 @@ router.post('/createuser', [
         //check whether the user exits already findOne will help to check if that user with same email already exits or not 
         let user = await User.findOne({ email: req.body.email })
         if (user) {
-            return res.status(400).json({ error: "User alredy exists" })
+            return res.status(400).json({success, error: "User alredy exists" })
         }
         //create a new user
         user = await User.create({
@@ -48,9 +48,9 @@ router.post('/createuser', [
             }
         }
         var authToken = jwt.sign(data, JWT_SECRET);
+        success = true;
 
-
-        res.json({ authToken })
+        res.json({success, authToken })
     } catch (error) {
         console.log(error.message)
         res.status(500).send("some error occured")
@@ -83,7 +83,7 @@ router.post('/login', [
         let user = await User.findOne({ email })
         if (!user) {
             success = false;
-            return res.status(400).json({ error: "Please try to login with correct credentials" })
+            return res.status(400).json({success, error: "Please try to login with correct credentials" })
         }
         const passwordCom = await bcrypt.compare(password, user.password);
 
