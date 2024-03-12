@@ -24,9 +24,9 @@ const Signup = (props) => {
     //save the authtoken and then redirect
     if(json.success === true){
       //save the authtoken and then redirect
-      localStorage.setItem('token', json.authToken);
+      localStorage.setItem('token', json.authtoken);
 
-      history("/");
+      history("/login");
       props.showAlert("Account Created Successfully", "success")
   }
   else{
@@ -61,4 +61,4 @@ const Signup = (props) => {
   )
 }
 
-export default Signup
+export default Signup;
