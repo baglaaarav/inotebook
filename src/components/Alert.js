@@ -1,13 +1,22 @@
-import React from 'react'
+import React from "react";
 
-const Alert = (props) => {
-    return (
-        <div>
-            <div className="alert alert-secondary" role="alert">
-                {props.message}
-            </div>
-        </div>
-    )
+function Alert(props) {
+  const captiallize = (str) => {
+    const lower = str.toLowerCase();
+    return str[0].toUpperCase() + lower.slice(1);
+  };
+
+  return (
+    <div style={{height:'70px'}}>
+      {props.alert &&
+      <div
+        className={`alert alert-${props.alert.type} alert-dismissible fade show`}
+        role="alert"
+      >
+        <strong>{captiallize(props.alert.type)} </strong>:{props.alert.msg}
+      </div>}
+    </div>
+  );
 }
 
-export default Alert
+export default Alert;

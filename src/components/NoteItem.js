@@ -16,9 +16,11 @@ const NoteItem = (props) => {
                     <div className="row">
                         <div className="col">
                             <i className="fa-solid fa-trash mx-2" onClick={() => {
+                                props.showAlert("Deleted successfully", "success")
                                 deletenote(note._id);
                             }}></i>
                             <i className="fa-solid fa-pen-to-square mx-2 " onClick={() => {
+                                
                                 updateNote(note);
                             }}></i>
                         </div>
