@@ -71,7 +71,7 @@ router.post('/login', [
     body('email', "Enter a valid email").isEmail(),
     body('password', "Password can not be blank").exists()
 ], async (req, res) => {
-
+    let success = false;
     const error = validationResult(req);
     if (!error.isEmpty()) {
         return res.status(400).json({ error: error.array() });
@@ -82,12 +82,14 @@ router.post('/login', [
     try {
         let user = await User.findOne({ email })
         if (!user) {
+            success = false;
             return res.status(400).json({ error: "Please try to login with correct credentials" })
         }
         const passwordCom = await bcrypt.compare(password, user.password);
 
         if (!passwordCom) {
-            return res.status(400).json({ error: "Please try to login with correct credentials" })
+            success = false;
+            return res.status(400).json({success, error: "Please try to login with correct credentials" })
         }
 
         const data = {
@@ -96,9 +98,9 @@ router.post('/login', [
             }
         }
         var authToken = jwt.sign(data, JWT_SECRET);
+        success = true;
 
-
-        res.json({ authToken })
+        res.json({ success, authToken })
 
     } catch (error) {
         console.log(error.message)
