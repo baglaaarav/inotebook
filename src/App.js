@@ -18,7 +18,7 @@ import { useState } from "react";
 
 
 function App() {
-
+  document.body.style.backgroundColor = "#555b63"
   const [alert, setAlert] = useState(null)
   const showAlert = (message, type) => {
     setAlert({

@@ -5,9 +5,11 @@ const NoteItem = (props) => {
 
     const context = useContext(Notecontext);
     const { deletenote } = context
+
+    
     return (
         <div className='col-md-3 my-3'>
-            <div className="card">
+            <div className="card text-bg-secondary">
                 <div className="card-body">
 
                     <h5 className="card-title"> {note.title}</h5>

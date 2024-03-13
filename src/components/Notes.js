@@ -4,7 +4,7 @@ import NoteItem from './NoteItem';
 import AddNote from './AddNote';
 import { useNavigate } from 'react-router-dom';
 const Notes = (props) => {
-
+    
     const context = useContext(Notecontext);
     const { notes, getnotes, editnote } = context;
 
@@ -59,15 +59,15 @@ const Notes = (props) => {
                             <form>
                                 <div className="mb-3">
                                     <label htmlFor="title" className="form-label">Title</label>
-                                    <input type="text" className="form-control" id="title" name='title' aria-describedby="emailHelp" value={note.title} onChange={onchange} />
+                                    <input style={{color:"white", backgroundColor:"#888e99"}} type="text" className="form-control" id="title" name='title' aria-describedby="emailHelp" value={note.title} onChange={onchange} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="description" className="form-label">Description</label>
-                                    <input type="text" className="form-control" id="description" name='description' value={note.description} onChange={onchange} />
+                                    <input style={{color:"white", backgroundColor:"#888e99"}} type="text" className="form-control" id="description" name='description' value={note.description} onChange={onchange} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="tag" className="form-label">tag</label>
-                                    <input type="text" className="form-control" id="tag" name='tag' value={note.tag} onChange={onchange} />
+                                    <input style={{color:"white", backgroundColor:"#888e99"}} type="text" className="form-control" id="tag" name='tag' value={note.tag} onChange={onchange} />
                                 </div>
 
                             </form>

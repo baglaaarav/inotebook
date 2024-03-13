@@ -1,5 +1,6 @@
 import React, {useContext, useState} from 'react'
 import Notecontext from '../context/notes/notecontext'
+
 const AddNote = (props) => {
     const context = useContext(Notecontext);
     const { addnote } = context;
@@ -20,15 +21,15 @@ const AddNote = (props) => {
                 <form>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Title</label>
-                        <input type="text" className="form-control" id="title" name='title' value={note.title} aria-describedby="emailHelp" onChange={onchange}/>
+                        <input style={{color:"white", backgroundColor:"#888e99"}} type="text" className="form-control" id="title" name='title' value={note.title} aria-describedby="emailHelp" onChange={onchange}/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="description" className="form-label">Description</label>
-                        <input type="text" className="form-control" id="description" name='description' value={note.description}   onChange={onchange}/>
+                        <input style={{color:"white", backgroundColor:"#888e99"}} type="text" className="form-control" id="description" name='description' value={note.description}   onChange={onchange}/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="tag" className="form-label">tag</label>
-                        <input type="text" className="form-control" id="tag" name='tag'  onChange={onchange} value={note.tag}/>
+                        <input style={{color:"white", backgroundColor:"#888e99"}} type="text" className="form-control" id="tag" name='tag'  onChange={onchange} value={note.tag}/>
                     </div>
                     <button type="submit" className="btn btn-primary" onClick={handleClick}>Add Note</button>
                 </form>
