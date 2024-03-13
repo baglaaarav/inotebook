@@ -5,8 +5,11 @@ const Login = (props) => {
     let history = useNavigate();
     const handleClick = async (e) => {
         e.preventDefault();
-
-        const response = await fetch("http://localhost:4000/api/auth/login", {
+        
+        const link =  `${process.env.REACT_APP_CONNECT_LINK}/api/auth/login`
+        console.log(link)
+        // console.log(link);
+        const response = await fetch(link, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -1,6 +1,8 @@
+require('dotenv').config();
 const mongoose = require('mongoose')
-const mongoUrl = "mongodb://localhost:27017/inotebook"
 
+console.log(process.env.REACT_APP_DB_HOST);
+const mongoUrl = process.env.REACT_APP_DB_HOST;
 
 
 async function connectToMongo() {

@@ -3,7 +3,8 @@ import { useState } from "react";
 import NoteContext from "./notecontext";
 
 const NoteState = (props) => {
-  const host = "http://localhost:4000"
+  const host = process.env.REACT_APP_CONNECT_LINK
+  console.log(host);
   const notesf = [];
   const [notes, changeNotes] = useState(notesf);
   //get a note

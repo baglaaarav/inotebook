@@ -10,8 +10,9 @@ const Signup = (props) => {
     e.preventDefault();
 
     const { name, password, email } = cred;
-
-    const response = await fetch("http://localhost:4000/api/auth/createuser", {
+    const link =  `${process.env.REACT_APP_CONNECT_LINK}/api/auth/createuser`
+    
+    const response = await fetch(link, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
