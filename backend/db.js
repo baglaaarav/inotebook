@@ -1,8 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose')
 
-console.log(process.env.REACT_APP_DB_HOST);
-const mongoUrl = process.env.REACT_APP_DB_HOST;
+const mongoUrl = "mongodb+srv://aarav:bagla@cluster0.boqgw5e.mongodb.net/inotebook?retryWrites=true&w=majority&appName=Cluster0";
 
 
 async function connectToMongo() {
