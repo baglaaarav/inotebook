@@ -9,7 +9,7 @@ app.use(cors())
 const port = 4000
 app.use(express.json())
 
- app.get("/myapi", (req, res) => { res.send("Express on Vercel"); });
+ app.get("/", (req, res) => { res.send("Express on Vercel"); });
 
 
 
