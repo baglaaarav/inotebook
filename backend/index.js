@@ -9,7 +9,7 @@ app.use(cors())
 const port = 4000
 app.use(express.json())
 
-
+ app.get("/", (req, res) => { res.send("Express on Vercel"); }); const PORT = process.env.PORT || 5000; app.listen(PORT, () => { console.log(`Server is running on port ${PORT}`); });
 
 
 
@@ -18,3 +18,4 @@ app.use('/api/auth', require('./routes/auth'))
 app.use('/api/notes', require('./routes/notes'))
 
 app.listen(port)
+// ... (previous code) module.exports = app; // Export the Express app
